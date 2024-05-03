@@ -15,6 +15,9 @@ export default {
           "deep": "#006d77",
       }
       },
+      screens: {
+        xsm: '320px',
+      },
       fontFamily: {
         fascinate: ["Fascinate", "Georgia", "sans-serif"],
         inter: ["Inter", "Arial", "sans-serif"],
