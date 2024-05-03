@@ -1,13 +1,17 @@
 import { ComponentProps } from "react";
 
-interface PropsAccessButton extends ComponentProps<'button'>{
-
+interface PropsAccessButton extends ComponentProps<"button"> {
+  text?: string;
+  w?: string;
 }
 
-export function AccessButton({...props}: PropsAccessButton) {
-
-
+export function AccessButton({ text, w, ...props }: PropsAccessButton) {
   return (
-    <button className="bg-button-adm font-poppins uppercase h-16 xsm:h-14 w-72 xsm:w-60 rounded-2xl text-white text-2xl font-bold" {...props}>Entrar</button>
-  )
+    <button
+      className={`bg-button-adm font-poppins uppercase h-16  w-[${w}]  rounded-2xl text-white text-2xl font-bold`}
+      {...props}
+    >
+      {text}
+    </button>
+  );
 }
