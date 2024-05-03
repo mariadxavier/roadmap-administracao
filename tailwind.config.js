@@ -4,16 +4,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        adm: {
-          "light": "#e3f2fd",
-          "pale": "#c0dded",
-          "light-sky": "#96d3f4",
-          "sky": "#86d5fe",
-          "medium-sky": "81cdf5",
-          "medium": "#6aaacb",
-          "dark": "#0077b6",
-          "deep": "#006d77",
-      }
+        backgroundLight: {
+          'adm': '#e3f2fd',
+        },
+        backgroundMedium: {
+          'adm': '#86d5fe',
+        },
+        backgroundDeep: {
+          'adm':'#6aaacb'
+        },
+        button: {
+          'adm': '#0077b6',
+        },
+        buttonLesson: {
+          'adm': '#86d5fe'
+        },
+        title: {
+          'adm': '#0077b6',
+        },
+        titlePages: {
+          'adm': '#888888'
+        },
+        titlePrincipal: {
+          'adm': '#006d77',
+        },
+      },
+      screens: {
+        xsm: '320px',
       },
       fontFamily: {
         fascinate: ["Fascinate", "Georgia", "sans-serif"],
