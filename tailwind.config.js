@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        fascinate: ["Fascinate", "Georgia", "sans-serif"],
+        inter: ["Inter", "Arial", "sans-serif"],
+        poppins: ['Poppins', "Georgia", "sans-serif"],
+        poppinsT: "Poppins"
+    }
+    }
   },
   plugins: [],
 }

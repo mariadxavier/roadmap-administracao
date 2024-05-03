@@ -1,8 +1,10 @@
+import { AccessButton } from "./components/access-button"
+
 export function App() {
 
   return (
     <>
-      <h1>ROADMAP!!!</h1>
+      <AccessButton/>
     </>
   )
 }
