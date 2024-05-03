@@ -1,6 +1,6 @@
 import React from 'react'
-import GrupImg from '../components/grup-img'
-import { AccessButton } from '../components/access-button'
+import GrupImg from '../components/GrupImg'
+import { AccessButton } from '../components/AccessButton'
 
 function StartPage() {
   return (
