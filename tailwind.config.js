@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "macaco" : "url(./src/assets/monkey.svg)"
+        "macaco" : "url(./src/assets/monkey.svg)",
+        "web" : "url(./src/assets/webgif.gif)",
       },
       colors: {
         backgroundLight: {
@@ -30,7 +31,7 @@ export default {
         },
         titlePrincipal: {
           'adm': '#006d77',
-        },
+        }
       },
       screens: {
         xsm: '320px',
