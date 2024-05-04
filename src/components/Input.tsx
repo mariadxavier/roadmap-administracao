@@ -6,7 +6,7 @@ interface IInputProps {
 
 export function Input({ label, placeHolder, icon }: IInputProps) {
   return (
-    <div className="flex flex-col w-4/5 items-center justify-center">
+    <div className="flex flex-col w-[90%] items-center justify-center">
       <label
         className="self-start ml-6 font-inter font-bold text-sm text-[#434343]"
         htmlFor={label}

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "macaco" : "url(./src/assets/monkey.svg)"
+      },
       colors: {
         backgroundLight: {
           'adm': '#e3f2fd',

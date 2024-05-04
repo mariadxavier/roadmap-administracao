@@ -1,8 +1,7 @@
-import React from 'react'
 import GrupImg from '../components/GrupImg'
 import { AccessButton } from '../components/AccessButton'
 
-function StartPage() {
+export function StartPage() {
   return (
     <section className='flex flex-col w-screen h-screen bg-backgroundLight-adm items-center justify-between lg:flex-row-reverse lg:p-16'>
       <GrupImg/>
@@ -14,4 +13,3 @@ function StartPage() {
   )
 }
 
-export default StartPage
