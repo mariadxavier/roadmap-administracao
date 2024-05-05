@@ -1,17 +1,33 @@
 import { ComponentProps } from "react";
+import { FaPlay } from "react-icons/fa";
+import { twMerge } from "tailwind-merge";
+import { FcLock } from "react-icons/fc";
 
 interface SectionAccessButtonProps extends ComponentProps<"button"> {
     text: string;
-    icon: JSX.Element;
+    unlocked: boolean;
 }
 
-export function SectionAccessButton({text, icon, ...props}:SectionAccessButtonProps) {
+export function SectionAccessButton({
+    text,
+    ...props
+}: SectionAccessButtonProps) {
     return (
         <button
             {...props}
-            className="bg-white rounded-[20px] w-11/12 min-h-20 p-4 font-poppins font-black text-black/60 text-2xl flex justify-between flex-nowrap text-wrap text-left text- items-center"
+            className={twMerge(
+                "rounded-[20px] w-11/12 min-h-20 p-4 font-poppins font-black text-2xl xsm:text-xl flex justify-between flex-nowrap text-wrap text-left items-center",
+                props.unlocked
+                    ? "bg-white text-black/60"
+                    : "bg-white/60 text-textGray-adm"
+            )}
         >
-            {text} {icon}
+            {text}{" "}
+            {props.unlocked ? (
+                <FaPlay className="text-title-adm h-8 m-1 xsm:size-10" />
+            ) : (
+                <FcLock className="size-8 xsm:size-10 m-1" />
+            )}
         </button>
     );
 }
