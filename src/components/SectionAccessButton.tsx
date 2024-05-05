@@ -24,7 +24,7 @@ export function SectionAccessButton({
         >
             {text}{" "}
             {props.unlocked ? (
-                <FaPlay className="text-title-adm h-8 m-1 xsm:size-10" />
+                <FaPlay className="text-titlePrincipal-adm h-8 m-1 xsm:size-10" />
             ) : (
                 <FcLock className="size-8 xsm:size-10 m-1" />
             )}
