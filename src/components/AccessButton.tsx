@@ -5,7 +5,7 @@ interface PropsAccessButton extends ComponentProps<"button"> {
   w?: string;
 }
 
-export function AccessButton({ text, w, ...props }: PropsAccessButton) {
+export function AccessButton({ text, ...props }: PropsAccessButton) {
   return (
     <button
       className={`bg-button-adm font-poppins uppercase h-16  w-11/12  rounded-2xl text-white text-2xl font-bold`}
