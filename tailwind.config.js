@@ -31,10 +31,13 @@ export default {
         },
         titlePrincipal: {
           'adm': '#006d77',
+        }, 
+        textGray: {
+          'adm': '#9E9E9E',
         }
       },
       screens: {
-        xsm: '320px',
+        xsm: {'max': '320px'},
       },
       fontFamily: {
         fascinate: ["Fascinate", "Georgia", "sans-serif"],
