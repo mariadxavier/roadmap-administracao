@@ -3,7 +3,6 @@ import { twMerge } from "tailwind-merge";
 
 interface PropsAccessButton extends ComponentProps<"button"> {
     text: string;
-    w?: string;
     color?: string
 }
 

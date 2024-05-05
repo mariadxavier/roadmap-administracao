@@ -1,5 +1,4 @@
-import StartPage from "./pages/StartPage"
-import { AccessButton } from "./components/AccessButton"
+import { StartPage  } from "./pages/StartPage"
 
 export function App() {
 

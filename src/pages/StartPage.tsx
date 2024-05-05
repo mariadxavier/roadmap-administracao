@@ -1,4 +1,4 @@
-import GrupImg from '../components/GrupImg'
+import { GrupImg } from '../components/GrupImg'
 import { AccessButton } from '../components/AccessButton'
 
 export function StartPage() {
