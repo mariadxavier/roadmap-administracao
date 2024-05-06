@@ -16,7 +16,7 @@ export function SectionAccessButton({
         <button
             {...props}
             className={twMerge(
-                "rounded-[20px] w-11/12 min-h-20 p-4 font-poppins font-black text-2xl xsm:text-xl flex justify-between flex-nowrap text-wrap text-left items-center",
+                "rounded-[20px] w-11/12 lg:w-10/12  min-h-20 p-4 font-poppins font-black text-2xl xsm:text-xl flex justify-between flex-nowrap text-wrap text-left items-center",
                 props.unlocked
                     ? "bg-white text-black/60"
                     : "bg-white/60 text-textGray-adm"

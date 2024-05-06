@@ -35,7 +35,7 @@ export function Question({ title }: IQuestionProps) {
 
   return (
     <section className="flex flex-col items-center h-dvh py-6 xsm:py-2 max-w-[800px]">
-      <h2 className="text-[#383838]/60 font-poppins font-bold text-2xl mb-6">
+      <h2 className="text-[#383838]/60 font-poppins font-bold text-2xl lg:text-3xl mb-6">
         {title}
       </h2>
       <div className="max-h-[18.12rem] xsm:max-h-[14.12rem] h-fit w-full bg-[#AFE4FF] border-[5px] border-title-adm/45 rounded-[20px] overflow-auto mb-8 xsm:mb-4 p-2">

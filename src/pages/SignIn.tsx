@@ -30,7 +30,7 @@ export function SignIn() {
               placeHolder="Senha de acesso"
               icon={<FaLock size={22} className="text-[#808080]" />}
             />
-            <AccessButton text="CADASTRAR" w="80%" />
+            <AccessButton text="CADASTRAR"  />
           </form>
         </main>
       </div>
