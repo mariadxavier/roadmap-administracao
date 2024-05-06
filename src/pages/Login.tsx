@@ -16,7 +16,7 @@ export function Login() {
                 <form className="flex flex-col items-center gap-4 w-11/12 max-w-[400px]">
                     <Input label="E-mail" placeHolder="Digite seu e-mail" icon={<FaEnvelope size={22} className="text-[#808080]" />} ></Input>
                     <Input label="Senha" placeHolder="Senha de acesso" icon={<FaLock size={22} className="text-[#808080]" />}></Input>
-                    <AccessButton w="100%" text="ENTRAR"/>
+                    <AccessButton text="ENTRAR"/>
                 </form>
             </div>
         </div>
