@@ -8,7 +8,7 @@ export function SignIn() {
   return (
     <>
       <GoBack />
-      <div className="bg-backgroundLight-adm h-screen grid place-items-center">
+      <div className="bg-backgroundLight-adm h-dvh grid place-items-center">
         {/*parte com o bg-branco */}
         <main className="w-full bg-white h-full lg:h-[90%] lg:w-2/5 flex flex-col justify-end items-center lg:rounded-[20px]">
           <h1 className="font-inter text-center tracking-[0.5rem] text-title-adm font-black text-[2.3rem]">

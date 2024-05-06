@@ -5,7 +5,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 
 export function Login() {
     return (
-        <div className="flex flex-col items-center lg:bg-backgroundLight-adm w-screen h-screen py-4">
+        <div className="flex flex-col items-center lg:bg-backgroundLight-adm w-screen h-dvh py-4">
             <GoBack />
             <div className="flex items-center flex-col h-full w-full max-w-[560px] lg:bg-white lg:rounded-[20px] lg:pb-6 justify-center gap-8">
                 <div className="size-80 bg-macaco bg-top bg-auto bg-no-repeat" >
