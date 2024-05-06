@@ -1,4 +1,3 @@
-import React from 'react'
 import { AccessButton } from './AccessButton'
 import { twMerge } from 'tailwind-merge';
 

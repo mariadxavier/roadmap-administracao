@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react'
+import { ComponentProps } from 'react'
 import img1 from '../assets/signing-contract.png'
 import img2 from '../assets/young-people-working-at-the-desk.png'
 

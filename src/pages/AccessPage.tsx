@@ -1,4 +1,3 @@
-import React from 'react'
 import CardCourse from '../components/CardCourse'
 import { GrupImg } from '../components/GrupImg'
 
