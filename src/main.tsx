@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         </Link>
         <Link
           className="bg-button-adm text-white font-poppins font-black px-8 py-4 rounded-2xl shadow-md"
-          to="/sectionPage"
+          to="/section"
         >
           Section Page
         </Link>
