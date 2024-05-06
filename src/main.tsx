@@ -9,7 +9,7 @@ import { SignIn } from "./pages/SignIn";
 import { Configuration } from "./pages/Configuration";
 import { Quiz } from "./pages/Quiz";
 import { Lesson } from "./pages/Lesson";
-import { SectionPage } from "./pages/SectionPage.tsx";
+import {Section} from "./pages/Section"
 
 const router = createBrowserRouter([
   {
@@ -87,8 +87,8 @@ const router = createBrowserRouter([
     element: <Lesson />,
   },
   {
-    path: "/sectionPage",
-    element: <SectionPage />,
+    path: "/section",
+    element: <Section />,
   },
 ]);
 

@@ -1,7 +1,7 @@
 import { SectionAccessButton } from "../components/SectionAccessButton";
 import IconWeb from "../assets/webgif.gif";
 
-export function SectionPage() {
+export function Section() {
     return (
         <div className="w-screen h-screen overflow-scroll flex flex-col lg:justify-center items-center bg-backgroundDeep-adm lg:bg-backgroundLight-adm">
             <h1 className="font-poppins font-bold text-titlePages-adm text-4xl md:text-5xl leading-8 top-12 xsm:top-8 lg:top-8 fixed">Módulos</h1>
