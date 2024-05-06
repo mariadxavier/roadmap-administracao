@@ -9,6 +9,7 @@ import { SignIn } from "./pages/SignIn";
 import { Configuration } from "./pages/Configuration";
 import { Quiz } from "./pages/Quiz";
 import { Lesson } from "./pages/Lesson";
+import { SectionPage } from "./pages/SectionPage";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,12 @@ const router = createBrowserRouter([
         >
           Lesson
         </Link>
+        <Link
+          className="bg-button-adm text-white font-poppins font-black px-8 py-4 rounded-2xl shadow-md"
+          to="/sectionPage"
+        >
+          Section Page
+        </Link>
       </div>
     ),
   },
@@ -78,6 +85,10 @@ const router = createBrowserRouter([
   {
     path: "/lesson",
     element: <Lesson />,
+  },
+  {
+    path: "/sectionPage",
+    element: <SectionPage />,
   },
 ]);
 
