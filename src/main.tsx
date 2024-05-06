@@ -9,7 +9,7 @@ import { SignIn } from "./pages/SignIn";
 import { Configuration } from "./pages/Configuration";
 import { Quiz } from "./pages/Quiz";
 import { Lesson } from "./pages/Lesson";
-import { SectionPage } from "./pages/SectionPage";
+import { SectionPage } from "./pages/SectionPage.tsx";
 
 const router = createBrowserRouter([
   {
