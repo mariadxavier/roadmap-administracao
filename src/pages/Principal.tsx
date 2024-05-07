@@ -1,9 +1,10 @@
-import React from 'react'
+import { Unit } from "../components/Unit";
 
-function Principal() {
+export function Principal() {
   return (
-    <div>Principal</div>
+    <div>
+      {/* <Unit/> */}
+    </div>
   )
 }
 
-export default Principal

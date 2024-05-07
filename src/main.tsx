@@ -10,7 +10,7 @@ import { Configuration } from "./pages/Configuration";
 import { Quiz } from "./pages/Quiz";
 import { Lesson } from "./pages/Lesson";
 import {Section} from "./pages/Section"
-import Principal from "./pages/Principal";
+import {Principal} from "./pages/Principal";
 
 const router = createBrowserRouter([
   {
