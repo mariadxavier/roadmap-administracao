@@ -2,7 +2,9 @@ import React from 'react'
 
 function Principal() {
   return (
-    <div>Principal</div>
+    <div className='h-dvh'>
+
+    </div>
   )
 }
 
