@@ -1,7 +1,6 @@
-import React from 'react'
-import Header from '../components/Header'
+import {Header} from '../components/Header'
 import { Unit } from '../components/Unit'
-import UnitButton from '../components/UnitButton'
+import {UnitButton} from '../components/UnitButton'
 
 export function Principal() {
   return (

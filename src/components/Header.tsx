@@ -5,9 +5,9 @@ interface PropsHeader {
   percent: number;
 }
 
-function Header({percent}: PropsHeader) {
+export function Header({percent}: PropsHeader) {
 
-  const [progress, setProgress] = React.useState(0);
+  const [progress, setProgress] = React.useState(percent);
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,4 +32,3 @@ function Header({percent}: PropsHeader) {
   )
 }
 
-export default Header
