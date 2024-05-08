@@ -1,6 +1,3 @@
-import React, { useEffect } from 'react'
-import { DiVim } from 'react-icons/di';
-
 interface PropsUnitButton {
     howMany: number;
 }
