@@ -17,8 +17,8 @@ export function Principal() {
                 <main className="overflow-scroll">
                     <header className="flex flex-col items-center w-full gap-6 py-4">
                         <Header percent={60} />
-                        <h1 className="w-full sm:w-10/12 self-start mt-16 px-4 sm:px-8 font-poppins font-extrabold text-titlePrincipal-adm text-3xl lg:hidden">
-                            Boas vindas à sua trilha de conhecimento!
+                        <h1 className="w-full sm:w-10/12 self-start mt-16 px-4 sm:px-8 font-poppins font-extrabold text-titlePrincipal-adm text-3xl lg:hidden xsm:text-2xl">
+                            Boas vindas à sua trilha de aprendizado!
                         </h1>
                         <div className="size-full lg:hidden">
                             <AboutUs />
