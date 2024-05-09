@@ -6,12 +6,13 @@ interface UnitProps {
     nome: string,
     children?: Array<JSX.Element>,
     closed? : boolean,
+    color: string;
 }
 
-export function Unit({children, numero, nome, closed}: UnitProps) {
+export function Unit({children, numero, nome, closed, color}: UnitProps) {
 
     return (
-        <div className="w-full sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 my-4 rounded-[40px]"> 
+        <div className="w-full sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 my-4 rounded-[40px]" style={{background: `${color}`}}> 
             {/* Header - Unidade minimizada: */}
             <div className="flex items-center justify-between w-full  text-white">
                 <div className="font-extrabold font-poppins flex flex-col gap-2">

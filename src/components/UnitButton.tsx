@@ -12,7 +12,7 @@ export function UnitButton({index, arrayLength}: PropsUnitButton) {
 
     if(index != arrayLength) {
         return (
-            <div className={twMerge(`grid place-items-center size-24 rounded-2xl odd:self-start even:self-end shadow-md backdrop-contrast-[${20-index}]`)}>
+            <div className={twMerge(`grid place-items-center size-24 rounded-2xl odd:self-start even:self-end shadow-md`)} style={{backdropFilter: `contrast(${12-index})`}}>
                 <h1 className="text-5xl font-bold text-gray-700">{index}</h1>
             </div>
         )

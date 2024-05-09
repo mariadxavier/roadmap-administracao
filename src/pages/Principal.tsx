@@ -25,7 +25,7 @@ export function Principal() {
                         </div>
                     </header>
                     <section className="h-full w-full flex flex-col items-center lg:mt-10">
-                          <Unit numero="1" nome="Marketing">
+                          <Unit color="#86d5fe" numero="1" nome="Marketing">
                             {temas.map((item, index) => <UnitButton key={index} index={index} arrayLength={temas.length}/>)}
                           </Unit>
                        
