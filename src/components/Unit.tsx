@@ -11,7 +11,7 @@ interface UnitProps {
 
 export function Unit({children, numero, nome, closed }: UnitProps) {
     return (
-        <div className="w-full sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 my-8 rounded-[40px] "> 
+        <div className="w-full sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 my-4 rounded-[40px] "> 
             {/* Header - Unidade minimizada: */}
             <div className="flex items-center justify-between w-full  text-white">
                 <div className="font-extrabold font-poppins flex flex-col gap-2">
