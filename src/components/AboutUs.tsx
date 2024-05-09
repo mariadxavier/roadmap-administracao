@@ -8,7 +8,7 @@ export function AboutUs() {
           <h4 className="font-poppins font-extrabold text-white mb-2 text-nowrap text-lg xsm:text-sm">
             Desenvolvido por:
           </h4>
-          <button className="px-4 py-2 bg-white rounded-lg text-base xsm:text-sm font-bold">
+          <button className="px-4 py-2 bg-white rounded-lg text-base xsm:text-sm font-bold text-titlePages-adm">
             Saiba mais
           </button>
         </div>

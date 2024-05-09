@@ -15,10 +15,10 @@ export function Quiz() {
             </div>
             <section className="bg-white w-full flex flex-col items-center rounded-t-[40px] h-full justify-between pt-6 xsm:pt-2 px-6 lg:rounded-none lg:hidden">
               <div className="w-full pt-2 ">
-                <h1 className="text-titlePrincipal-adm font-inter font-black text-[2rem] xsm:text-[1.7rem]">
+                <h1 className="text-titlePrincipal-adm font-inter font-black text-[2rem] xsm:text-[1.7rem] md:text-6xl lg:text-[2rem]">
                   Questionário 1:
                 </h1>
-                <span className="text-titlePrincipal-adm  font-inter font-black text-[2rem] xsm:text-[1.7rem]">
+                <span className="text-titlePrincipal-adm  font-inter font-black text-[2rem] xsm:text-[1.7rem] md:text-6xl lg:text-[2rem]">
                   Marketing
                 </span>
               </div>
