@@ -16,9 +16,11 @@ export function Principal() {
                         <h1 className="w-full sm:w-10/12 self-start mt-16 px-4 sm:px-8 font-poppins font-extrabold text-titlePrincipal-adm text-3xl lg:hidden">
                             Boas vindas à sua trilha de conhecimento!
                         </h1>
-                        <AboutUs />
+                        <div className="size-full lg:hidden">
+                            <AboutUs />
+                        </div>
                     </header>
-                    <section className="h-full w-full flex flex-col items-center">
+                    <section className="h-full w-full flex flex-col items-center lg:mt-10">
                         <Unit
                             children={[<UnitButton howMany={5} />]}
                             numero="1"

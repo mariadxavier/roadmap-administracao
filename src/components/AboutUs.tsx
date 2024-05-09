@@ -4,7 +4,7 @@ import imgJoao from "../assets/img_joao.png";
 
 export function AboutUs() {
   return (
-    <div className="w-full px-4 h-fit grid place-items-center ">
+    <div className="w-full px-4 h-fit grid place-items-center">
       <div className=" bg-[#EFBFCC] w-full max-w-[370px] h-[20dvh] max-h-[120px] flex items-end pl-4 rounded-lg gap-4">
         <div className="mb-6 xsm:mb-3">
           <h4 className="font-poppins font-extrabold text-white mb-2 text-nowrap xsm:text-sm">
@@ -15,9 +15,9 @@ export function AboutUs() {
           </button>
         </div>
         <div className="w-full bg-yellow-500 h-full relative flex items-center justify-center">
-          <img src={imgAndre} className="w-[80%] absolute -left-1/3" />
+          {/* <img src={imgAndre} className="w-[80%] absolute -left-1/3" />
           <img src={imgMadu} className="w-[80%] absolute z-10 ml-1" />
-          <img src={imgJoao} className="w-[100%] absolute -right-2/4 " />
+          <img src={imgJoao} className="w-[100%] absolute -right-2/4 " /> */}
         </div>
       </div>
     </div>
