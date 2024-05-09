@@ -6,8 +6,12 @@ import { Unit } from "../components/Unit";
 import { UnitButton } from "../components/UnitButton";
 
 export function Principal() {
+  // Teste de retorno do backend
+  const temas: {nome: string}[]= [
+    {nome: "Matéria 1",},{nome: "Matéria 2"},{nome: "Matéria 3"},{nome: "Matéria 1",},{nome: "Matéria 2"},{nome: "Matéria 3"},{nome: "Matéria 2"},{nome: "Matéria 3"},{nome: "Matéria 2"},{nome: "Matéria 3"}]
+
     return (
-        <div className="flex">
+      <div className="flex">
             <AsideMenu whosActive="openBook" />
             <div className="w-screen flex flex-col h-dvh">
                 <main className="overflow-scroll">
@@ -21,29 +25,10 @@ export function Principal() {
                         </div>
                     </header>
                     <section className="h-full w-full flex flex-col items-center lg:mt-10">
-                        <Unit
-                            children={[<UnitButton howMany={5} />]}
-                            numero="1"
-                            nome="Nome da Unidade"
-                        />
-                        <Unit
-                            children={[<UnitButton howMany={5} />]}
-                            closed
-                            numero="1"
-                            nome="Nome da Unidade"
-                        />
-                        <Unit
-                            children={[<UnitButton howMany={5} />]}
-                            closed
-                            numero="1"
-                            nome="Nome da Unidade"
-                        />
-                        <Unit
-                            children={[<UnitButton howMany={5} />]}
-                            closed
-                            numero="1"
-                            nome="Nome da Unidade"
-                        />
+                          <Unit numero="1" nome="Marketing">
+                            {temas.map((item, index) => <UnitButton key={index} index={index} arrayLength={temas.length}/>)}
+                          </Unit>
+                       
                     </section>
                 </main>
                 <FooterMenu whosActive="openBook" />
