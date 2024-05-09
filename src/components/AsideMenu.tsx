@@ -14,7 +14,7 @@ export function AsideMenu({ whosActive }: IMenuProps) {
         <div className="flex flex-col w-full">
           <ButtonAsideMenu
             img={BookMenuFooter}
-            text="TRILHA"
+            text="Trilha"
             isActive={whosActive === "openBook"}
           />
           <ButtonAsideMenu
