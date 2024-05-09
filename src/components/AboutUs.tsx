@@ -4,7 +4,7 @@ import imgJoao from "../assets/img_joao.png";
 
 export function AboutUs() {
   return (
-    <div className="w-full px-4 h-dvh grid place-items-center">
+    <div className="w-full px-4 h-fit grid place-items-center ">
       <div className=" bg-[#EFBFCC] w-full max-w-[370px] h-[20dvh] max-h-[120px] flex items-end pl-4 rounded-lg gap-4">
         <div className="mb-6 xsm:mb-3">
           <h4 className="font-poppins font-extrabold text-white mb-2 text-nowrap xsm:text-sm">
