@@ -3,7 +3,6 @@ import Lock from "../assets/lock.svg";
 import WomanUser from "../assets/womanUser.svg";
 import { FooterMenu } from "../components/FooterMenu";
 import { AsideMenu } from "../components/AsideMenu";
-import { AboutUs } from "../components/AboutUs";
 export function Configuration() {
     return (
         <div className="flex">

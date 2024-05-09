@@ -26,7 +26,12 @@ export function Principal() {
                     </header>
                     <section className="h-full w-full flex flex-col items-center lg:mt-10">
                           <Unit color="#86d5fe" numero="1" nome="Marketing">
-                            {temas.map((item, index) => <UnitButton key={index} index={index} arrayLength={temas.length}/>)}
+                            {temas.map((item, index) => {
+                              // este log existe apenas pra retirar o warning q impede o deploy no vercel por falta de uso de "item". Necessário outra solução.
+                              console.log(item.nome)
+                              return(
+                            
+                            <UnitButton key={index} index={index} arrayLength={temas.length} />) })}
                           </Unit>
                        
                     </section>

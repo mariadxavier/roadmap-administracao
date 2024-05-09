@@ -3,7 +3,6 @@ import { IMenuProps } from "./types";
 import BookMenuFooter from "../assets/bookMenuFooter.gif";
 import ClosedBooksMenuFooter from "../assets/closedbooksMenuFooter.svg";
 import GearMenuFooter from "../assets/gearMenuFooter.svg";
-import { AboutUs } from "./AboutUs";
 
 export function AsideMenu({ whosActive }: IMenuProps) {
     return (
