@@ -1,7 +1,7 @@
 import { TextLesson } from "../components/TextLesson";
 import { Subtitle } from "../components/SubtitleLesson";
 import { AccessButton } from "../components/AccessButton";
-import { VideoYT } from "../components/VideoLesson"
+import { VideoYT } from "../components/videoLesson";
 import { Header } from "../components/HeaderLesson";
 import imgTeste from "../assets/iconTeste.png";
 import { ImgLesson } from "../components/ImgLesson";
