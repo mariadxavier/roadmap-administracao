@@ -28,6 +28,15 @@ export function Principal() {
                           <Unit color="#86d5fe" numero="1" nome="Marketing">
                             {temas.map((item, index) => {
                               // este log existe apenas pra retirar o warning q impede o deploy no vercel por falta de uso de "item". Necessário outra solução.
+
+                              console.log(item.nome)
+                              return(
+                            
+                            <UnitButton key={index} index={index} arrayLength={temas.length} />) })}
+                          </Unit>
+                          <Unit color="#86d5fe" numero="1" nome="Marketing">
+                            {temas.map((item, index) => {
+                              // este log existe apenas pra retirar o warning q impede o deploy no vercel por falta de uso de "item". Necessário outra solução.
                               console.log(item.nome)
                               return(
                             
@@ -57,6 +66,8 @@ export function Principal() {
           )
         )
 
+        unidades.map( unidade => <unity color={unidade.color} buttons={unidade.button}>)
+
         Modulo
             {
               [ 
@@ -83,6 +94,27 @@ export function Principal() {
               ]
         }]
         }
+
+        [
+          {
+            logica: [
+              {tema1: {
+                nome: Algoritimo,
+                color: "#ffffff",
+                number: 2,
+                apiColor: "linkFetch"
+                buttons: [
+                  {id: "1",
+                    number: 1,
+                    unityValue: 1,
+                    lessonValue :3
+                    color: "blue"
+                  }
+                ]
+              }}
+            ]
+          }
+        ]
         
         */
 }
