@@ -24,7 +24,7 @@ export function Unit({ children, numero, nome, color }: UnitProps) {
         console.log(h);
         h === "0" ? setH("100%") : setH("0");
         
-        // direction === "0" ? setDirection("90") : setDirection("0");
+        direction === "0" ? setDirection("90") : setDirection("0");
     }
 
     return (
@@ -45,7 +45,7 @@ export function Unit({ children, numero, nome, color }: UnitProps) {
                 <FaPlay
                     className={twMerge(
                         "size-8 m-1 ",
-                        `-rotate-${direction} transition duration-[1.8s]`
+                        `rotate-${direction} transition duration-[1.8s]`
                     )}
                 />
             </div>
