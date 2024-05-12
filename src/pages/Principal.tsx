@@ -20,9 +20,9 @@ export function Principal() {
                         <h1 className="w-full sm:w-10/12 self-start mt-16 px-4 sm:px-8 font-poppins font-extrabold text-titlePrincipal-adm text-3xl lg:hidden xsm:text-2xl">
                             Boas vindas à sua trilha de aprendizado!
                         </h1>
-                        <div className="size-full lg:hidden">
+                        {/* <div className="size-full lg:hidden">
                             <AboutUs />
-                        </div>
+                        </div> */}
                     </header>
                     <section className="h-full w-full flex flex-col items-center lg:mt-10">
                           <Unit color="#86d5fe" numero="1" nome="Marketing">
