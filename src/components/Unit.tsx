@@ -27,7 +27,7 @@ export function Unit({ children, numero, nome, color }: UnitProps) {
 
     return (
         <div
-            className="w-full sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 my-4 rounded-[40px]"
+            className="w-11/12 sm:w-11/12 lg:w-8/12 bg-backgroundMedium-adm p-6 mt-4 rounded-[40px]"
             style={{ background: `${color}` }}
         >
             {/* Header - Unidade minimizada: */}

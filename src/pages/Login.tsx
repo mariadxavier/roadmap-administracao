@@ -8,7 +8,7 @@ export function Login() {
     return (
         <div className="flex flex-col items-center lg:bg-backgroundLight-adm w-dwh h-dvh py-4">
             <GoBack />
-            <div className="flex items-center flex-col h-full w-full max-w-[560px] lg:bg-white lg:rounded-[20px] lg:pb-6 justify-center gap-4">
+            <div className="flex  items-center flex-col h-full w-full max-w-[560px] lg:bg-white lg:rounded-[20px] lg:pb-6 justify-center gap-4">
 
                 <img className="xsm:hidden size-60 bg-top bg-auto bg-no-repeat" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/See-No-Evil%20Monkey.png" alt="See-No-Evil Monkey"/>
 
@@ -20,7 +20,7 @@ export function Login() {
 
                     <Input label="Senha" placeHolder="Senha de acesso" icon={<FaLock size={22} className="text-[#808080]" />}></Input>
                     <AccessButton text="ENTRAR"/>
-                <Link to={"/signin"} className="font-poppins text-sm text-nowrap">
+                <Link to={"/signin"} className="font-poppins text-sm text-nowrap text-[#4e565c] font-bold">
                     Não tem conta ainda? <span className="font-bold text-titlePrincipal-adm">Cadastre-se!</span>
                 </Link>
                 </form>
