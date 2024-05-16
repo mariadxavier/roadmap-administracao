@@ -1,4 +1,4 @@
-import imgDevs from "../assets/img-devs.png";
+// import imgDevs from "../assets/img-devs.png";
 
 export function AboutUs() {
   return (
@@ -13,11 +13,11 @@ export function AboutUs() {
           </button>
         </div>
         <div className=" w-full h-[calc(100%+15px)]  relative flex items-center justify-center">
-          <img
+          {/* <img
             className="rounded-lg bottom-0 w-full h-full absolute"
             src={imgDevs}
             draggable={false}
-          />
+          /> */}
         </div>
       </div>
     </div>
