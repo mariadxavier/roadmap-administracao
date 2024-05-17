@@ -1,3 +1,4 @@
+import { ChangeEvent, useEffect, useState } from "react";
 import { AccessButton } from "../components/AccessButton";
 import { GoBack } from "../components/GoBack";
 import { Input } from "../components/Input";
@@ -5,6 +6,75 @@ import { Input } from "../components/Input";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 
 export function SignIn() {
+  const [buttonState, setButtonState] = useState(true);
+  const [nickInputValidate, setNickInputValidade] = useState(true);
+  const [emailInputValidate, setEmailInputValidade] = useState(true);
+  const [passwordInputValidate, setPasswordInputValidade] = useState(true);
+
+  useEffect(() => {
+    if (!nickInputValidate && !emailInputValidate && !passwordInputValidate) {
+      setButtonState(false);
+    } else {
+      setButtonState(true);
+    }
+  }, [nickInputValidate, emailInputValidate, passwordInputValidate]);
+
+  function handleNickValidate(
+    setValue: React.Dispatch<React.SetStateAction<string>>,
+    e: ChangeEvent<HTMLInputElement>,
+    setBorder: React.Dispatch<React.SetStateAction<string>>,
+    setSpanDisplay: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setValue(e.target.value);
+    if (e.target.value.length > 3 && e.target.value.length <= 10) {
+      setBorder("2px solid green");
+      setSpanDisplay("none");
+      setNickInputValidade(false);
+    } else {
+      setNickInputValidade(true);
+      setBorder("2px solid red");
+      setSpanDisplay("block");
+    }
+  }
+
+  function handleEmailValidate(
+    setValue: React.Dispatch<React.SetStateAction<string>>,
+    e: ChangeEvent<HTMLInputElement>,
+    setBorder: React.Dispatch<React.SetStateAction<string>>,
+    setSpanDisplay: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setValue(e.target.value);
+    const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    const validate = emailRegex.test(e.target.value);
+    if (validate) {
+      setBorder("2px solid green");
+      setSpanDisplay("none");
+      setEmailInputValidade(false);
+    } else {
+      setEmailInputValidade(true);
+      setBorder("2px solid red");
+      setSpanDisplay("block");
+    }
+  }
+
+  function handlePasswordValidate(
+    setValue: React.Dispatch<React.SetStateAction<string>>,
+    e: ChangeEvent<HTMLInputElement>,
+    setBorder: React.Dispatch<React.SetStateAction<string>>,
+    setSpanDisplay: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setValue(e.target.value);
+    if (e.target.value.length > 7) {
+      setBorder("2px solid green");
+      setSpanDisplay("none");
+      setPasswordInputValidade(false);
+    } else {
+      setPasswordInputValidade(true);
+      setBorder("2px solid red");
+      setSpanDisplay("block");
+    }
+  }
+
   return (
     <>
       <GoBack />
@@ -19,18 +89,24 @@ export function SignIn() {
               label="Apelido"
               placeHolder="Digite seu apelido"
               icon={<FaUser size={22} className="text-[#808080]" />}
+              onChange={handleNickValidate}
+              errorValidadeString="O nome deve ter entre 3 e 10 caracteres"
             />
             <Input
               label="Email"
               placeHolder="Digite seu email"
               icon={<FaEnvelope size={22} className="text-[#808080]" />}
+              errorValidadeString="Digite um email válido."
+              onChange={handleEmailValidate}
             />
             <Input
               label="Senha"
               placeHolder="Senha de acesso"
               icon={<FaLock size={22} className="text-[#808080]" />}
+              errorValidadeString="A senha deve ter 8 caracteres ou mais"
+              onChange={handlePasswordValidate}
             />
-            <AccessButton text="CADASTRAR"  />
+            <AccessButton disabled={buttonState} text="CADASTRAR" />
           </form>
         </main>
       </div>
