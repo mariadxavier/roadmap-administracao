@@ -4,6 +4,7 @@ interface IInputProps {
   label: string;
   placeHolder?: string;
   icon?: JSX.Element;
+  type?: string;
   errorValidadeString: string;
   onChange?: (
     setValue: React.Dispatch<React.SetStateAction<string>>,
@@ -17,7 +18,7 @@ export function Input({
   label,
   placeHolder,
   errorValidadeString,
-  icon,
+  icon,type,
   onChange,
 }: IInputProps) {
   const [value, setValue] = useState("");
@@ -46,7 +47,7 @@ export function Input({
           }}
           value={value}
           name={label}
-          type="text"
+          type={type}
         />
         <span
           className="absolute text-xs ml-4 mt-1 xsm:ml-2 text-red-700 before:content-['*'] flex flex-col items-center justify-center before:mr-1 text-nowrap"
