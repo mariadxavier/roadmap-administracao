@@ -12,12 +12,15 @@ interface UnitProps {
 
 export function Unit({ children, numero, nome, color }: UnitProps) {
     const unitMaximizada = useRef(null);
-    const [direction, setDirection] = useState("0");
+    const [direction, setDirection] = useState("rotate-0");
     const [h, setH] = useState("100%");
 
     function handleClickUnity() {
         h === "0" ? setH("100%") : setH("0");
-        h === "0" ? setDirection("0") : setDirection("90");
+        h === "0" ? setDirection("rotate-0") : setDirection("rotate-90");
+
+        console.log(direction)
+        // h === "0" ? setDirection("0") : setDirection("90");
         gsap.to(unitMaximizada.current, {
             duration: 1.8,
             ease: "bounce.out",
@@ -43,7 +46,7 @@ export function Unit({ children, numero, nome, color }: UnitProps) {
                 <FaPlay
                     className={twMerge(
                         "size-8 m-1 ",
-                        `rotate-${direction} transition duration-[1.6s]`
+                        "transition duration-[1.6s]", `${direction}`
                     )}
                 />
             </div>
