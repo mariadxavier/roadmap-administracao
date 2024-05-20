@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { AccessButton } from "../components/AccessButton";
 import { GoBack } from "../components/GoBack";
 import { Input } from "../components/Input";
@@ -10,6 +10,7 @@ export function SignIn() {
   const [nickInputValidate, setNickInputValidade] = useState(true);
   const [emailInputValidate, setEmailInputValidade] = useState(true);
   const [passwordInputValidate, setPasswordInputValidade] = useState(true);
+  const [returnedUser, setReturnedUser] = useState({});
 
   useEffect(() => {
     if (!nickInputValidate && !emailInputValidate && !passwordInputValidate) {
@@ -75,6 +76,32 @@ export function SignIn() {
     }
   }
 
+  async function handlerSubmitForm(e: FormEvent) {
+    e.preventDefault();
+    const nickInput = e.currentTarget.children[0].children[1]
+      .children[1] as HTMLInputElement;
+    const emailInput = e.currentTarget.children[1].children[1]
+      .children[1] as HTMLInputElement;
+    const passwordInput = e.currentTarget.children[2].children[1]
+      .children[1] as HTMLInputElement;
+
+    const newUser = {
+      nick: nickInput.value,
+      email: emailInput.value,
+      password: passwordInput.value,
+    };
+
+    const data = await fetch(`http://localhost:3000/user`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    }).then((response) => setReturnedUser(response.json()));
+
+    console.log(data);
+  }
+
   return (
     <>
       <GoBack />
@@ -84,7 +111,11 @@ export function SignIn() {
           <h1 className="font-poppins text-center tracking-[0.5rem] text-title-adm font-black text-[2.3rem]">
             Cadastro
           </h1>
-          <form className="flex flex-col items-center pb-[1rem] md:pb-[3rem] w-full max-w-[450px] gap-6">
+          <form
+            className="flex flex-col items-center pb-[1rem] md:pb-[3rem] w-full max-w-[450px] gap-6"
+            onSubmit={handlerSubmitForm}
+            method="POST"
+          >
             <Input
               label="Apelido"
               placeHolder="Digite seu apelido"
