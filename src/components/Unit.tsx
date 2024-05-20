@@ -18,9 +18,6 @@ export function Unit({ children, numero, nome, color }: UnitProps) {
     function handleClickUnity() {
         h === "0" ? setH("100%") : setH("0");
         h === "0" ? setDirection("rotate-0") : setDirection("rotate-90");
-
-        console.log(direction)
-        // h === "0" ? setDirection("0") : setDirection("90");
         gsap.to(unitMaximizada.current, {
             duration: 1.8,
             ease: "bounce.out",
