@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, RefObject, useState } from "react";
 
 interface IInputProps {
   label: string;
@@ -6,6 +6,7 @@ interface IInputProps {
   icon?: JSX.Element;
   type?: string;
   errorValidadeString: string;
+  refInput?: RefObject<HTMLInputElement>;
   onChange?: (
     setValue: React.Dispatch<React.SetStateAction<string>>,
     e: ChangeEvent<HTMLInputElement>,
@@ -18,7 +19,9 @@ export function Input({
   label,
   placeHolder,
   errorValidadeString,
-  icon,type,
+  icon,
+  type,
+  refInput,
   onChange,
 }: IInputProps) {
   const [value, setValue] = useState("");
@@ -40,6 +43,7 @@ export function Input({
           className=" bg-[#d9d9d9] w-full  h-12 rounded-lg pl-[50px] placeholder:text-[#7f7f7f] font-inter placeholder:opacity-60 outline-none focus-within:outline-blue-300/70"
           placeholder={placeHolder}
           style={{ border: border }}
+          ref={refInput}
           onChange={(e) => {
             if (onChange) {
               onChange(setValue, e, setBorder, setSpanDisplay);
