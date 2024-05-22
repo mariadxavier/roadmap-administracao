@@ -1,24 +1,58 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { AccessButton } from "../components/AccessButton";
 import { GoBack } from "../components/GoBack";
 import { Input } from "../components/Input";
 
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+interface IUser {
+  nick: string;
+  password: string;
+  _id: string;
+}
 
 export function SignIn() {
   const [buttonState, setButtonState] = useState(true);
   const [nickInputValidate, setNickInputValidade] = useState(true);
   const [emailInputValidate, setEmailInputValidade] = useState(true);
   const [passwordInputValidate, setPasswordInputValidade] = useState(true);
-  const [returnedUser, setReturnedUser] = useState({});
+  const [checkPasswordInputValidate, setCheckPasswordInputValidate] =
+    useState(true);
+  const [returnedUser, setReturnedUser] = useState<IUser | object>({});
+
+  const nickInput = useRef<HTMLInputElement>(null);
+  const emailInput = useRef<HTMLInputElement>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
+  const checkPasswordInput = useRef<HTMLInputElement>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!nickInputValidate && !emailInputValidate && !passwordInputValidate) {
+    if (
+      !nickInputValidate &&
+      !emailInputValidate &&
+      !passwordInputValidate &&
+      !checkPasswordInputValidate
+    ) {
       setButtonState(false);
     } else {
       setButtonState(true);
     }
-  }, [nickInputValidate, emailInputValidate, passwordInputValidate]);
+  }, [
+    nickInputValidate,
+    emailInputValidate,
+    passwordInputValidate,
+    checkPasswordInputValidate,
+  ]);
+
+  useEffect(() => {
+    const returnedUserAtt = Object.getOwnPropertyNames(returnedUser);
+    if (returnedUserAtt.length === 0) {
+      return;
+    }
+    localStorage.setItem("user-RM-ADM", JSON.stringify(returnedUser));
+  }, [returnedUser]);
 
   function handleNickValidate(
     setValue: React.Dispatch<React.SetStateAction<string>>,
@@ -76,30 +110,57 @@ export function SignIn() {
     }
   }
 
+  function handleCheckPasswordValidate(
+    setValue: React.Dispatch<React.SetStateAction<string>>,
+    e: ChangeEvent<HTMLInputElement>,
+    setBorder: React.Dispatch<React.SetStateAction<string>>,
+    setSpanDisplay: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setValue(e.target.value);
+    const passwordInputRef = passwordInput.current;
+    const checkPasswordInputRef = checkPasswordInput.current;
+
+    const isEqual = passwordInputRef?.value === checkPasswordInputRef?.value;
+
+    if (isEqual) {
+      setBorder("2px solid green");
+      setSpanDisplay("none");
+      setPasswordInputValidade(false);
+      setCheckPasswordInputValidate(false);
+    } else {
+      setPasswordInputValidade(true);
+      setBorder("2px solid red");
+      setSpanDisplay("block");
+      setCheckPasswordInputValidate(true);
+    }
+  }
+
   async function handlerSubmitForm(e: FormEvent) {
     e.preventDefault();
-    const nickInput = e.currentTarget.children[0].children[1]
-      .children[1] as HTMLInputElement;
-    const emailInput = e.currentTarget.children[1].children[1]
-      .children[1] as HTMLInputElement;
-    const passwordInput = e.currentTarget.children[2].children[1]
-      .children[1] as HTMLInputElement;
+    const nickInputRef = nickInput.current;
+    const emailInputRef = emailInput.current;
+    const passwordInputRef = passwordInput.current;
 
     const newUser = {
-      nick: nickInput.value,
-      email: emailInput.value,
-      password: passwordInput.value,
+      nick: nickInputRef?.value,
+      email: emailInputRef?.value,
+      password: passwordInputRef?.value,
     };
 
-    const data = await fetch(`http://localhost:3000/user`, {
+    await fetch("http://localhost:3000/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
-    }).then((response) => setReturnedUser(response.json()));
-
-    console.log(data);
+    }).then(async (response) => {
+      const data = await response.json();
+      setReturnedUser(data);
+      if (data.token.length > 0) {
+        navigate("/section");
+      }
+    });
+    console.log(newUser);
   }
 
   return (
@@ -122,6 +183,7 @@ export function SignIn() {
               icon={<FaUser size={22} className="text-[#808080]" />}
               onChange={handleNickValidate}
               errorValidadeString="O nome deve ter entre 3 e 10 caracteres"
+              refInput={nickInput}
             />
             <Input
               label="Email"
@@ -129,6 +191,7 @@ export function SignIn() {
               icon={<FaEnvelope size={22} className="text-[#808080]" />}
               errorValidadeString="Digite um email válido."
               onChange={handleEmailValidate}
+              refInput={emailInput}
             />
             <Input
               label="Senha"
@@ -136,6 +199,15 @@ export function SignIn() {
               icon={<FaLock size={22} className="text-[#808080]" />}
               errorValidadeString="A senha deve ter 8 caracteres ou mais"
               onChange={handlePasswordValidate}
+              refInput={passwordInput}
+            />
+            <Input
+              label="Confirmar senha"
+              placeHolder="Digite a senha novamente"
+              icon={<FaLock size={22} className="text-[#808080]" />}
+              errorValidadeString="As senhas são diferentes"
+              refInput={checkPasswordInput}
+              onChange={handleCheckPasswordValidate}
             />
             <AccessButton disabled={buttonState} text="CADASTRAR" />
           </form>
