@@ -160,7 +160,6 @@ export function SignIn() {
         navigate("/section");
       }
     });
-    console.log(newUser);
   }
 
   return (
