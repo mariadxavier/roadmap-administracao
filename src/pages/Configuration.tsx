@@ -3,6 +3,8 @@ import Lock from "../assets/lock.svg";
 import WomanUser from "../assets/womanUser.svg";
 import { FooterMenu } from "../components/FooterMenu";
 import { AsideMenu } from "../components/AsideMenu";
+import RobotIcon from "../assets/robot-icon.png"
+
 export function Configuration() {
     return (
         <div className="flex">
@@ -13,9 +15,7 @@ export function Configuration() {
                         Configurações
                     </h2>
                     <div className="flex gap-8 items-center">
-                        <div className="bg-backgroundMedium-adm size-[20dvw] max-h-44 max-w-44 min-h-32 min-w-32 size-m rounded-full border-[5px] border-[#0077B699] grid place-items-center">
-                            IMG
-                        </div>
+                        <img className="size-[20dvw] max-h-44 max-w-44 min-h-32 min-w-32 size-m  grid place-items-center" src={RobotIcon}/>
 
                         <h3 className="font-poppins flex flex-col font-bold text-[#383838] opacity-60 text-2xl after:content-[''] after:w-full after:h-1 after:bg-[#0077b663]">
                             Olá, João
