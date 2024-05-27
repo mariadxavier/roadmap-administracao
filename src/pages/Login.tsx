@@ -2,25 +2,41 @@ import { GoBack } from "../components/GoBack";
 import { AccessButton } from "../components/AccessButton";
 import { Input } from "../components/Input";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { ChangeEvent, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+
+interface IUser {
+    nick: string;
+    password: string;
+    _id: string;
+}
 
 export function Login() {
     const [buttonState, setButtonState] = useState(true);
     const [emailInputValidate, setEmailInputValidade] = useState(true);
     const [passwordInputValidate, setPasswordInputValidade] = useState(true);
+    const emailInput = useRef<HTMLInputElement>(null);
+    const passwordInput = useRef<HTMLInputElement>(null);
+
+    const [returnedUser, setReturnedUser] = useState<IUser | object>({});
+
+    const navigate = useNavigate();
 
     useEffect(() => {
-        if (
-            !emailInputValidate &&
-            !passwordInputValidate
-        ) {
+        const returnedUserAtt = Object.getOwnPropertyNames(returnedUser);
+        if (returnedUserAtt.length === 0) {
+            return;
+        }
+        localStorage.setItem("user-RM-ADM", JSON.stringify(returnedUser));
+    }, [returnedUser]);
+
+    useEffect(() => {
+        if (!emailInputValidate && !passwordInputValidate) {
             setButtonState(false);
         } else {
             setButtonState(true);
         }
     }, [emailInputValidate, passwordInputValidate]);
-
 
     function handleEmailValidate(
         setValue: React.Dispatch<React.SetStateAction<string>>,
@@ -60,6 +76,31 @@ export function Login() {
         }
     }
 
+    async function handleSubmitForm(e: FormEvent) {
+        e.preventDefault();
+        const emailInputRef = emailInput.current;
+        const passwordInputRef = passwordInput.current;
+
+        const logUser = {
+            email: emailInputRef?.value,
+            password: passwordInputRef?.value,
+        };
+
+        await fetch("http://localhost:3000/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(logUser),
+        }).then(async (response) => {
+            const data = await response.json();
+            setReturnedUser(data);
+            if (data.token.length > 0) {
+                navigate("/section");
+            }
+        });
+    }    
+
     return (
         <div className="flex flex-col items-center lg:bg-backgroundLight-adm w-dwh h-dvh py-4">
             <GoBack />
@@ -74,7 +115,11 @@ export function Login() {
                     LOGIN
                 </h1>
 
-                <form className="flex flex-col items-center gap-4 w-11/12 max-w-[400px]">
+                <form
+                    onSubmit={handleSubmitForm}
+                    method="POST"
+                    className="flex flex-col items-center gap-4 w-11/12 max-w-[400px]"
+                >
                     <Input
                         errorValidadeString="Insira um e-mail válido"
                         label="E-mail"
@@ -82,6 +127,7 @@ export function Login() {
                         icon={
                             <FaEnvelope size={22} className="text-[#808080]" />
                         }
+                        refInput={emailInput}
                         onChange={handleEmailValidate}
                     ></Input>
 
@@ -91,8 +137,8 @@ export function Login() {
                         icon={<FaLock size={22} className="text-[#808080]" />}
                         type="password"
                         errorValidadeString=" "
+                        refInput={passwordInput}
                         onChange={handlePasswordValidate}
-
                     ></Input>
                     <AccessButton disabled={buttonState} text="ENTRAR" />
                     <Link
@@ -109,27 +155,3 @@ export function Login() {
         </div>
     );
 }
-
-/**
- *
- *
- *
- *
- *
- *
- * [ (CURSO)
- *      { (MODULO)
- *          ID: ""
- *          NOME: ""
- *      },
- *      { (MODULO)
- *      },
- *      { (MODULO)
- *      }
- * ]
- *
- * [
- * {
- *      idModulo: ""
- * }]
- */
