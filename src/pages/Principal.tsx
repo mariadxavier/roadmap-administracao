@@ -1,5 +1,5 @@
 // import { AboutUs } from "../components/AboutUs";
-import { AboutUs } from "../components/AboutUs";
+import { FormOpinion } from "../components/FormOpinion";
 import { AsideMenu } from "../components/AsideMenu";
 import { FooterMenu } from "../components/FooterMenu";
 import { Header } from "../components/Header";
@@ -32,7 +32,7 @@ export function Principal() {
                             Boas vindas à sua trilha de aprendizado!
                         </h1>
                         <div className="size-full lg:hidden">
-                            <AboutUs />
+                            <FormOpinion />
                         </div>
                     </header>
                     <section className="h-full w-full flex flex-col items-center lg:mt-10">
