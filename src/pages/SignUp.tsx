@@ -12,7 +12,7 @@ interface IUser {
   _id: string;
 }
 
-export function SignIn() {
+export function SignUp() {
   const [buttonState, setButtonState] = useState(true);
   const [nickInputValidate, setNickInputValidade] = useState(true);
   const [emailInputValidate, setEmailInputValidade] = useState(true);
