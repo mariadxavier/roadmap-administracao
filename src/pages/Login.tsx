@@ -4,6 +4,7 @@ import { Input } from "../components/Input";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { useAuth } from "../context/AuthProvider/useAuth";
 
 interface IUser {
     nick: string;
@@ -18,17 +19,7 @@ export function Login() {
     const emailInput = useRef<HTMLInputElement>(null);
     const passwordInput = useRef<HTMLInputElement>(null);
 
-    const [returnedUser, setReturnedUser] = useState<IUser | object>({});
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const returnedUserAtt = Object.getOwnPropertyNames(returnedUser);
-        if (returnedUserAtt.length === 0) {
-            return;
-        }
-        localStorage.setItem("user-RM-ADM", JSON.stringify(returnedUser));
-    }, [returnedUser]);
+    
 
     useEffect(() => {
         if (!emailInputValidate && !passwordInputValidate) {
@@ -76,30 +67,19 @@ export function Login() {
         }
     }
 
-    async function handleSubmitForm(e: FormEvent) {
-        e.preventDefault();
-        const emailInputRef = emailInput.current;
-        const passwordInputRef = passwordInput.current;
-
-        const logUser = {
-            email: emailInputRef?.value,
-            password: passwordInputRef?.value,
-        };
-
-        await fetch("http://localhost:3000/user/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(logUser),
-        }).then(async (response) => {
-            const data = await response.json();
-            setReturnedUser(data);
-            if (data.token.length > 0) {
-                navigate("/section");
-            }
-        });
-    }    
+    async function onSubmit(values: {
+        email: string;
+        password: string;
+    }) {
+        const auth = useAuth();
+        const navigate = useNavigate();
+        try {
+            await auth.authenticate(values.email, values.password);
+            navigate("/modulos");
+        } catch (err) {
+           alert("E-mail ou senha incorretos");
+        }
+    }
 
     return (
         <div className="flex flex-col items-center lg:bg-backgroundLight-adm w-dwh h-dvh py-4">
@@ -116,7 +96,7 @@ export function Login() {
                 </h1>
 
                 <form
-                    onSubmit={handleSubmitForm}
+                    onSubmit={onSubmit}
                     method="POST"
                     className="flex flex-col items-center gap-4 w-11/12 max-w-[400px]"
                 >
@@ -140,9 +120,13 @@ export function Login() {
                         refInput={passwordInput}
                         onChange={handlePasswordValidate}
                     ></Input>
-                    <AccessButton disabled={buttonState} text="ENTRAR" />
+                    <AccessButton
+                        disabled={buttonState}
+                        text="ENTRAR"
+                        type="submit"
+                    />
                     <Link
-                        to={"/signin"}
+                        to={"/cadastro"}
                         className="font-poppins text-sm text-nowrap hover:underline text-[#4e565c] font-bold"
                     >
                         Não tem conta ainda?{" "}

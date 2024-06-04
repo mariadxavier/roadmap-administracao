@@ -1,7 +1,7 @@
 export interface IUser {
-    nick: string;
-    password: string;
-    _id: string;
+    nick?: string;
+    email?: string;
+    token?: string;
 }
 
 export interface IContext extends IUser{
