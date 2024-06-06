@@ -1,4 +1,4 @@
-import { ChangeEvent, RefObject, useState } from "react";
+import { ChangeEvent, MutableRefObject, useState } from "react";
 
 interface IInputProps {
   label: string;
@@ -6,7 +6,7 @@ interface IInputProps {
   icon?: JSX.Element;
   type?: string;
   errorValidadeString: string;
-  refInput?: RefObject<HTMLInputElement>;
+  refInput?: MutableRefObject<HTMLInputElement>;
   onChange?: (
     setValue: React.Dispatch<React.SetStateAction<string>>,
     e: ChangeEvent<HTMLInputElement>,
