@@ -4,8 +4,12 @@ import WomanUser from "../assets/womanUser.svg";
 import { FooterMenu } from "../components/FooterMenu";
 import { AsideMenu } from "../components/AsideMenu";
 import RobotIcon from "../assets/robot-icon.png"
+import { getUserLocalStorage } from "../context/AuthProvider/util";
 
 export function Configuration() {
+    const user = getUserLocalStorage().user;
+    const nickUser = user.nick;
+
     return (
         <div className="flex">
             <AsideMenu whosActive="gear" />
@@ -18,7 +22,7 @@ export function Configuration() {
                         <img className="size-[20dvw] max-h-44 max-w-44 min-h-32 min-w-32 size-m  grid place-items-center" src={RobotIcon}/>
 
                         <h3 className="font-poppins flex flex-col font-bold text-[#383838] opacity-60 text-2xl after:content-[''] after:w-full after:h-1 after:bg-[#0077b663]">
-                            Olá, João
+                            Olá, {nickUser}
                         </h3>
                     </div>
                     <div className="flex flex-col  w-full max-w-[500px] px-4 gap-4 mt-16 xsm:mt-6">
