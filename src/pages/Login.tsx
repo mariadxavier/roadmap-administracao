@@ -3,23 +3,26 @@ import { AccessButton } from "../components/AccessButton";
 import { Input } from "../components/Input";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import {
+    ChangeEvent,
+    FormEvent,
+    MutableRefObject,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import { useAuth } from "../context/AuthProvider/useAuth";
-
-interface IUser {
-    nick: string;
-    password: string;
-    _id: string;
-}
+import { getUserLocalStorage } from "../context/AuthProvider/util";
 
 export function Login() {
     const [buttonState, setButtonState] = useState(true);
     const [emailInputValidate, setEmailInputValidade] = useState(true);
     const [passwordInputValidate, setPasswordInputValidade] = useState(true);
-    const emailInput = useRef<HTMLInputElement>(null);
-    const passwordInput = useRef<HTMLInputElement>(null);
+    const emailInput = useRef() as MutableRefObject<HTMLInputElement>;
+    const passwordInput = useRef() as MutableRefObject<HTMLInputElement>;
 
-    
+    const auth = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!emailInputValidate && !passwordInputValidate) {
@@ -67,17 +70,22 @@ export function Login() {
         }
     }
 
-    async function onSubmit(values: {
-        email: string;
-        password: string;
-    }) {
-        const auth = useAuth();
-        const navigate = useNavigate();
+    async function onSubmit(e: FormEvent) {
+        e.preventDefault();
+        let email = emailInput.current.value;
+        let password = passwordInput.current.value;
+
         try {
-            await auth.authenticate(values.email, values.password);
-            navigate("/modulos");
+            await auth.authenticate(email, password).then(async()=> {
+                const user = await getUserLocalStorage();
+                if (user.token.length > 1) {
+                    navigate("/modulos")        
+                }else {
+                    throw "E-mail ou senha incorretos";
+                }
+            })
         } catch (err) {
-           alert("E-mail ou senha incorretos");
+            alert(err);
         }
     }
 
@@ -117,6 +125,7 @@ export function Login() {
                         icon={<FaLock size={22} className="text-[#808080]" />}
                         type="password"
                         errorValidadeString=" "
+                        // refInput={passwordInput}
                         refInput={passwordInput}
                         onChange={handlePasswordValidate}
                     ></Input>
