@@ -10,6 +10,7 @@ import { Lesson } from "./pages/Lesson";
 import { Quiz } from "./pages/Quiz";
 import { Section } from "./pages/Section";
 import { Configuration } from "./pages/Configuration";
+import { Main } from "./pages/Main";
 
 export function App() {
     return (
@@ -42,7 +43,10 @@ export function App() {
                                 <Principal />
                             </ProtectedLayout>
                         }
-                    />
+                    >
+                        <Route index element={<Main/>}/>
+                        <Route path="/trilha/configuracao" element={<Configuration/>}/>
+                    </Route>
 
                      {/* Página de acesso a cursos, protegida: */}
                      {/* OBS: feature ainda não lançada */}
@@ -56,14 +60,14 @@ export function App() {
                     />
 
                      {/* Página de configurações do usuário, protegida: */}
-                     <Route
+                     {/* <Route
                         path="/configuracoes"
                         element={
                             <ProtectedLayout>
                                 <Configuration />
                             </ProtectedLayout>
                         }
-                    />
+                    /> */}
 
                       {/* Página de lição(aula, conteúdo), protegida: */}
                       <Route

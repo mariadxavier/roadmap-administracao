@@ -1,8 +1,6 @@
 import { ConfigurationButton } from "../components/ConfigurationButton";
 import Lock from "../assets/lock.svg";
 import WomanUser from "../assets/womanUser.svg";
-import { FooterMenu } from "../components/FooterMenu";
-import { AsideMenu } from "../components/AsideMenu";
 import RobotIcon from "../assets/robot-icon.png"
 import { getUserLocalStorage } from "../context/AuthProvider/util";
 
@@ -11,8 +9,7 @@ export function Configuration() {
     const nickUser = user.nick;
 
     return (
-        <div className="flex">
-            <AsideMenu whosActive="gear" />
+        <div className="flex w-full">
             <div className="flex flex-col items-center w-full bg-white h-dvh justify-between ">
                 <div className="w-full flex flex-col items-center pt-10 xsm:pt-2">
                     <h2 className="font-poppins font-bold justify-center text-[#383838] opacity-60 text-[2rem] mb-8">
@@ -43,7 +40,6 @@ export function Configuration() {
                         />
                     </div>
                 </div>
-                <FooterMenu whosActive="gear" />
             </div>
         </div>
     );
