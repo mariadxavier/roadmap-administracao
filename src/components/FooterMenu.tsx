@@ -24,7 +24,7 @@ export function FooterMenu() {
         setWhosActive("gear");
   
       } else if(elementNav.includes("closedbooksMenuFooter")) {
-        navigate("/modulo")
+        navigate("/modulos")
       }
     }
   }

@@ -5,7 +5,7 @@ import { Principal } from "./pages/Principal";
 import { StartPage } from "./pages/StartPage";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
-import AccessPage from "./pages/AccessPage";
+import {AccessPage} from "./pages/AccessPage";
 import { Lesson } from "./pages/Lesson";
 import { Quiz } from "./pages/Quiz";
 import { Section } from "./pages/Section";
